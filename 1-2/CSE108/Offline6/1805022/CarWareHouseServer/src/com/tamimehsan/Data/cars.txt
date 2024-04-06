@@ -1,0 +1,10 @@
+XYZ,01/01/2007,Marcedes,Benz,#ffff00,#00ffff,#0000ff,30000,5,G:\JavaFX\CarWareHouse\src\com\tamimehsan\resources\Mercedez.PNG
+OXYAA,13/12/2020,Ford,Mustang,#003333,#4d4d4d,#000000,99999,1,G:\JavaFX\CarWareHouse\src\com\tamimehsan\resources\Mustang.PNG
+OXAYS,13/12/2020,Ferrari,Pista,#800000,#cc6633,#ff6666,99999,3,G:\JavaFX\CarWareHouse\src\com\tamimehsan\resources\Roma.png
+123ACCV,22/12/2020,Audi,A1,#e64d4d,#ff0000,#4d4d4d,100000,4,G:\JavaFX\CarWareHouse\src\com\tamimehsan\resources\Audi.jpg
+INDFD,22/12/2020,Volkswagen,Vintage,#800000,#800080,#4d4d4d,10000,2,G:\JavaFX\CarWareHouse\src\com\tamimehsan\resources\Vintage.jpg
+AEX12,22/12/2020,Futurama,Concept,#ffffff,#e6e6e6,#b3b3b3,10000,1,G:\JavaFX\CarWareHouse\src\com\tamimehsan\resources\Futurama.jpg
+1YX98J,01/01/2014,Toyota,RAV4,#000000,#ffffff,#ffffff,25000,4,G:\JavaFX\CarWareHouse\src\com\tamimehsan\resources\Lancer.png
+ABC132,01/01/2007,Toyota,Premio,#ffff00,#00ffff,#0000ff,5000,10,G:\JavaFX\CarWareHouse\src\com\tamimehsan\resources\Ferrari.png
+ABD12,01/01/2007,Toyota,Corolla,#ffff00,#00ffff,#0000ff,4500,5,G:\JavaFX\CarWareHouse\src\com\tamimehsan\resources\Roma.png
+ABASD132,01/01/2007,BMW,Unnamed,#ffff00,#00ffff,#0000ff,3000,2,G:\JavaFX\CarWareHouse\src\com\tamimehsan\resources\Ferrari.png

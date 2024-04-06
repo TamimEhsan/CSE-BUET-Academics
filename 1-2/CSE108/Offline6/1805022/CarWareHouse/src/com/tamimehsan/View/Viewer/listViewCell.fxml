@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="217.0" prefWidth="438.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane fx:id="bg" layoutX="-1.0" prefHeight="217.0" prefWidth="438.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Rectangle fill="#527290" height="77.0" stroke="#fff3f3" strokeType="INSIDE" strokeWidth="0.0" width="438.0" />
+            <Label fx:id="carMake" layoutX="161.0" layoutY="10.0" prefHeight="35.0" prefWidth="169.0" text="Toyota" textFill="#f2f2f2" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="163.0" layoutY="148.0" text="Manufactured:" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Bold" size="15.0" />
+               </font></Label>
+            <Label fx:id="yearMade" layoutX="277.0" layoutY="149.0" text="2020" textFill="WHITE" />
+            <Label fx:id="carModel" layoutX="162.0" layoutY="44.0" prefHeight="21.0" prefWidth="162.0" text="Label" textFill="#f8f8f8">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="162.0" layoutY="94.0" text="Color available:" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Bold" size="15.0" />
+               </font></Label>
+            <Label fx:id="price" contentDisplay="RIGHT" layoutX="347.0" layoutY="47.0" text="\$50,000" textFill="WHITE">
+               <font>
+                  <Font name="Roboto" size="22.0" />
+               </font>
+            </Label>
+            <Circle fx:id="circleImage" fill="DODGERBLUE" layoutX="81.0" layoutY="95.0" radius="66.0" stroke="#527290" strokeType="INSIDE">
+               <effect>
+                  <Reflection fraction="0.28" topOffset="5.0" topOpacity="0.14" />
+               </effect></Circle>
+            <JFXButton fx:id="orderButton" buttonType="RAISED" layoutX="349.0" layoutY="10.0" onAction="#buyCar" prefHeight="35.0" prefWidth="77.0" ripplerFill="#0a87fc" style="-fx-background-color: #ff9900;" text="Order" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></JFXButton>
+            <Label layoutX="163.0" layoutY="173.0" text="Remaining:" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="quantity" layoutX="278.0" layoutY="170.0" text="2020" textFill="#f80000">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect></Label>
+            <Label layoutX="162.0" layoutY="124.0" text="Reg Number:" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="regNumber" layoutX="277.0" layoutY="125.0" text="2020" textFill="WHITE" />
+            <Circle fx:id="colorCircle1" fill="DODGERBLUE" layoutX="298.0" layoutY="104.0" radius="13.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fx:id="colorCircle2" fill="DODGERBLUE" layoutX="341.0" layoutY="104.0" radius="13.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fx:id="colorCircle3" fill="DODGERBLUE" layoutX="383.0" layoutY="104.0" radius="13.0" stroke="WHITE" strokeType="INSIDE" />
+            <Rectangle fx:id="colorRect3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="25.0" layoutX="264.0" layoutY="28.0" stroke="WHITE" strokeType="INSIDE" visible="false" width="25.0" />
+            <ImageView fx:id="stockEnd" fitHeight="132.0" fitWidth="335.0" layoutX="81.0" layoutY="47.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/stockEnd.png" />
+               </image>
+            </ImageView>
+         </children>
+         <effect>
+            <DropShadow offsetX="3.0" offsetY="3.0" />
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="520.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tamimehsan.Controller.Viewer.MenuClientController">
+   <children>
+      <Rectangle arcWidth="5.0" fill="#544266" height="100.0" layoutX="155.0" layoutY="422.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="300.0" />
+      <Rectangle arcWidth="5.0" fill="#5a5388" height="100.0" layoutX="155.0" layoutY="322.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="300.0">
+         <effect>
+            <DropShadow color="#372a43" height="40.0" radius="9.5" width="0.0" />
+         </effect>
+      </Rectangle>
+      <Rectangle arcWidth="5.0" fill="#4873a6" height="100.0" layoutX="155.0" layoutY="222.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="300.0">
+         <effect>
+            <DropShadow color="#403b68" height="81.67" radius="19.9175" width="0.0" />
+         </effect>
+      </Rectangle>
+      <Rectangle arcWidth="5.0" fill="#4c98cf" height="100.0" layoutX="155.0" layoutY="122.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="300.0">
+         <effect>
+            <DropShadow color="#1d4b80" height="81.54" radius="19.885" width="0.0" />
+         </effect>
+      </Rectangle>
+      <Rectangle arcWidth="5.0" fill="#41cbc7" height="120.0" layoutX="155.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="300.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+         <effect>
+            <DropShadow color="#2b648a" height="100.76" radius="24.69" width="0.0" />
+         </effect>
+      </Rectangle>
+      <Label layoutX="235.0" layoutY="151.0" text="View Cars" textFill="WHITE">
+         <font>
+            <Font name="Open Sans Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="235.0" layoutY="177.0" text="View all cars in showroom" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="235.0" layoutY="250.0" text="Search Cars" textFill="WHITE">
+         <font>
+            <Font name="Open Sans Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="235.0" layoutY="276.0" text="Search car by registration number" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="235.0" layoutY="350.0" text="Search Cars" textFill="WHITE">
+         <font>
+            <Font name="Open Sans Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="235.0" layoutY="376.0" prefHeight="20.0" prefWidth="198.0" text="Search car by make and model" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="235.0" layoutY="449.0" text="Buy Cars" textFill="WHITE">
+         <font>
+            <Font name="Open Sans Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="235.0" layoutY="475.0" text="Buy the car you love the most" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="171.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/sports-car.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.95" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="178.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/search.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="1.0" saturation="0.43" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="178.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/car.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="1.0" saturation="0.43" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="178.0" layoutY="451.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/car-loan.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="1.0" saturation="0.43" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="25.0" layoutX="168.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/menu.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="1.0" />
+         </effect>
+      </ImageView>
+      <Label layoutX="196.0" layoutY="78.0" text="MENU" textFill="WHITE">
+         <font>
+            <Font name="Open Sans Bold" size="18.0" />
+         </font>
+      </Label>
+      <Rectangle fill="#4874a8" height="59.0" layoutX="310.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="455.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="473.0" onAction="#goToLogin" prefHeight="40.0" prefWidth="128.0" ripplerFill="#58c6f2" style="-fx-background-color: #4874a8;" text="Logout" textFill="WHITE">
+         <font>
+            <Font name="Open Sans Regular" size="18.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="155.0" layoutY="122.0" onAction="#goToViewCar" prefHeight="100.0" prefWidth="300.0" />
+      <JFXButton layoutX="155.0" layoutY="222.0" onAction="#goToSearchByReg" prefHeight="100.0" prefWidth="300.0" />
+      <JFXButton layoutX="155.0" layoutY="322.0" onAction="#goToSearchByMakeModel" prefHeight="100.0" prefWidth="300.0" />
+      <JFXButton layoutX="155.0" layoutY="422.0" onAction="#goToBuyCar" prefHeight="100.0" prefWidth="300.0" />
+      <ImageView fitHeight="67.0" fitWidth="198.0" layoutX="249.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/logo.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="196.0" prefHeight="28.0" prefWidth="157.0" text="Public">
+         <font>
+            <Font name="Open Sans Bold" size="19.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="17.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/user.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

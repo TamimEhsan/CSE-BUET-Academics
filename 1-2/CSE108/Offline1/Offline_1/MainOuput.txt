@@ -1,0 +1,15 @@
+Elements of Array a:
+1 1 1 1 1 1 1 1 1 1
+Elements of Array b:
+1 2 3 4 5
+Elements of Array c:
+1 1 1 1 1 1 1 1 1 1
+Elements of Stack t:
+1 2 3 4 5
+Elements of Stack s:
+5 4 3 2 1
+Elements of Queue r:
+1 2 3 4 5
+Elements of Stack q:
+1 2 3 4 5
+Press any key to exit

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="623.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tamimehsan.Controller.Manufacture.GodownController">
+   <children>
+      <Rectangle fill="#42ccc8" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="623.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <JFXButton alignment="CENTER" buttonType="RAISED" graphicTextGap="0.0" layoutX="15.0" layoutY="546.0" onAction="#goToLogin" prefHeight="40.0" prefWidth="128.0" ripplerFill="#3bd5fc" style="-fx-background-color: #4874a8;" text="Logout" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></JFXButton>
+      <ListView fx:id="carListView" layoutX="156.0" layoutY="50.0" onMouseClicked="#clicked" prefHeight="551.0" prefWidth="467.0" style="-fx-background-color: white;" stylesheets="@../../CSS/main.css" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+      <Label layoutX="7.0" layoutY="9.0" text="Manufacturer Console" textFill="WHITE">
+         <font>
+            <Font name="Open Sans Regular" size="22.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="44.0" fitWidth="185.0" layoutX="430.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/logoNoShadow.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="12.0" layoutY="234.0" onAction="#addNewCar" prefHeight="48.0" prefWidth="136.0" ripplerFill="#dd9898" style="-fx-background-color: #4874a8;" text="Add Car" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/add.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Open Sans Bold" size="17.0" />
+         </font></JFXButton>
+      <Label fx:id="username" alignment="CENTER" contentDisplay="CENTER" layoutY="193.0" prefHeight="28.0" prefWidth="157.0" text="Tamim Ehsan">
+         <font>
+            <Font name="Open Sans Bold" size="19.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="19.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="484.0">
+         <image>
+            <Image url="@../../resources/user.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

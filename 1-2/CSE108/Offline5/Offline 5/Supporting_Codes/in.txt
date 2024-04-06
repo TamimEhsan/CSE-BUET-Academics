@@ -1,0 +1,4 @@
+1YX98J,2014,Black,White,,Toyota,RAV4,25000
+ABC132,2007,Yellow,,,Toyota,Corolla,5900
+MARY,2017,Dark Grey,Blue,Red,BMW,116d,55132
+38000,2012,Blue,Light Green,,Honda,Civic,9200

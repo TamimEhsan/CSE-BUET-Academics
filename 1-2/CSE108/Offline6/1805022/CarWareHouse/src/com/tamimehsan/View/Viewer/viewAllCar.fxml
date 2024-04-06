@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="623.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tamimehsan.Controller.Viewer.ViewAllCarController">
+    <children>
+        <ListView fx:id="listView" layoutX="155.0" layoutY="50.0" prefHeight="550.0" prefWidth="467.0" style="-fx-background-color: #dfdfdf;" stylesheets="@../../CSS/main.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+        <Rectangle arcWidth="5.0" fill="#42ccc8" height="50.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="623.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="13.0" layoutY="494.0" onAction="#goToMenu" prefHeight="40.0" prefWidth="128.0" ripplerFill="#439bcc" style="-fx-background-color: #4874a8;" text="Back" textFill="WHITE">
+            <font>
+                <Font name="Open Sans Regular" size="18.0" />
+            </font></JFXButton>
+        <ImageView fitHeight="45.0" fitWidth="185.0" layoutX="431.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../resources/logoNoShadow.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="18.0" layoutY="8.0" text="Showroom" textFill="WHITE">
+            <font>
+                <Font name="Open Sans Regular" size="22.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="191.0" prefHeight="28.0" prefWidth="157.0" text="Public">
+            <font>
+                <Font name="Open Sans Bold" size="19.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="19.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../resources/user.png" />
+            </image>
+        </ImageView>
+        <JFXButton alignment="CENTER" buttonType="RAISED" graphicTextGap="0.0" layoutX="13.0" layoutY="547.0" onAction="#goToLogin" prefHeight="40.0" prefWidth="128.0" ripplerFill="#3bd5fc" style="-fx-background-color: #4874a8;" text="Logout" textFill="WHITE">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </JFXButton>
+      <JFXTextField fx:id="liveSearch" labelFloat="true" layoutX="12.0" layoutY="231.0" prefHeight="25.0" prefWidth="130.0" promptText="Search Car" />
+    </children>
+</AnchorPane>

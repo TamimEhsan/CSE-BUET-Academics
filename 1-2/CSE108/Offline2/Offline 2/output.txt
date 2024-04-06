@@ -1,0 +1,158 @@
+Constructing Container with empty parameter
+___________________________________________
+The object has no elements
+No value is stored in the container
+_____________________
+Destructing Container
+Constructing Container with a single integer parameter
+______________________________________________________
+There is only an integer value in the container object
+The value is: 100
+The integer value retrieved from container object is: 100
+Freeing allocated memory for a single integer
+_____________________
+Destructing Container
+Constructing Container with integer array parameter
+___________________________________________________
+There is an integer array in the container object
+The values stored in the array are:
+10 20 30 
+The integer array retrieved from container object is: 
+10 20 30 
+Freeing allocated memory for integer array
+_____________________
+Destructing Container
+Constructing Container with integer matrix parameter
+____________________________________________________
+There is an integer matrix in the container object
+The values stored in the matrix are:
+1 2 3 
+4 5 6 
+The integer matrix retrieved from container object is: 
+1 2 3 
+4 5 6 
+Freeing allocated memory for integer matrix
+_____________________
+Destructing Container
+Constructing Container with empty parameter
+___________________________________________
+Constructing Container with a single integer parameter
+______________________________________________________
+Constructing Container with integer array parameter
+___________________________________________________
+Constructing Container with integer matrix parameter
+____________________________________________________
+
+Demonstrating objects of ContainerArray class...
+
+Constructing Container with empty parameter
+___________________________________________
+Constructing Container with empty parameter
+___________________________________________
+Constructing Container with empty parameter
+___________________________________________
+Constructing Container with empty parameter
+___________________________________________
+4 constructors with empty parameters are called
+Constructing Container with empty parameter
+___________________________________________
+Constructing Container with empty parameter
+___________________________________________
+Constructing Container with empty parameter
+___________________________________________
+3 constructors with empty parameters are called
+Calling copy constructor of Container
+_____________________________________
+_____________________
+Destructing Container
+Calling copy constructor of Container
+_____________________________________
+Freeing allocated memory for a single integer
+_____________________
+Destructing Container
+Calling copy constructor of Container
+_____________________________________
+Freeing allocated memory for integer array
+_____________________
+Destructing Container
+Calling copy constructor of Container
+_____________________________________
+Freeing allocated memory for integer array
+_____________________
+Destructing Container
+Calling copy constructor of Container
+_____________________________________
+Freeing allocated memory for integer matrix
+_____________________
+Destructing Container
+0-th element of 1st container array:
+Calling copy constructor of Container
+_____________________________________
+The object has no elements
+_____________________
+Destructing Container
+1-th element of 1st container array:
+Calling copy constructor of Container
+_____________________________________
+There is an integer array in the container object
+The values stored in the array are:
+10 20 30 
+Freeing allocated memory for integer array
+_____________________
+Destructing Container
+2-th element of 1st container array:
+Calling copy constructor of Container
+_____________________________________
+There is only an integer value in the container object
+The value is: 100
+Freeing allocated memory for a single integer
+_____________________
+Destructing Container
+0-th element of 2nd container array:
+Calling copy constructor of Container
+_____________________________________
+There is an integer array in the container object
+The values stored in the array are:
+10 20 30 
+Freeing allocated memory for integer array
+_____________________
+Destructing Container
+1-th element of 2nd container array:
+Calling copy constructor of Container
+_____________________________________
+There is an integer matrix in the container object
+The values stored in the matrix are:
+1 2 3 
+4 5 6 
+Freeing allocated memory for integer matrix
+_____________________
+Destructing Container
+_____________________
+Destructing Container
+_____________________
+Destructing Container
+Freeing allocated memory for integer matrix
+_____________________
+Destructing Container
+Freeing allocated memory for integer array
+_____________________
+Destructing Container
+Freeing allocated memory for a single integer
+_____________________
+Destructing Container
+Freeing allocated memory for integer array
+_____________________
+Destructing Container
+_____________________
+Destructing Container
+Freeing allocated memory for integer matrix
+_____________________
+Destructing Container
+Freeing allocated memory for integer array
+_____________________
+Destructing Container
+Freeing allocated memory for a single integer
+_____________________
+Destructing Container
+_____________________
+Destructing Container

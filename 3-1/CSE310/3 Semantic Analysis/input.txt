@@ -1,0 +1,11 @@
+vv main(){
+	int x,y,z,a[4];
+	x = a;
+	
+	
+	return 0;	
+}
+
+int foo(){
+	int x;
+}

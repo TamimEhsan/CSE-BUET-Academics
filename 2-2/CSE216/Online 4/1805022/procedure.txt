@@ -1,0 +1,41 @@
+CREATE OR REPLACE PROCEDURE ASSIGN_DEPT IS
+    ccc NUMBER;
+    employeeAssigned NUMBER;
+    lim NUMBER;
+BEGIN
+
+FOR R IN (SELECT * FROM EMPLOYEES ORDER BY HIRE_DATE)
+LOOP
+    FOR choiceorder in 1..27
+    LOOP
+        SELECT DEPARTMENT_ID INTO ccc
+        FROM OPTIONS WHERE EMPLOYEE_ID = R.EMPLOYEE_ID
+        AND CHOICE = choiceorder;
+
+        SELECT COUNT(*) INTO employeeAssigned
+        FROM EMPLOYEE_DEPARTMENT
+        WHERE DEPARTMENT_ID = ccc;
+
+        SELECT COUNT(*) INTO lim FROM LIMITS
+            WHERE DEPARTMENT_ID = ccc;
+        IF lim = 0 THEN
+            lim := 1000;
+        ELSE
+            SELECT LIMIT INTO lim FROM LIMITS
+            WHERE DEPARTMENT_ID = ccc;
+        end if;
+
+        IF employeeAssigned<lim THEN
+--             DBMS_OUTPUT.PUT_LINE('CREATED  A INPUT' || R.EMPLOYEE_ID);
+            INSERT INTO EMPLOYEE_DEPARTMENT(EMPLOYEE_ID, DEPARTMENT_ID)
+            VALUES (R.EMPLOYEE_ID,ccc);
+
+
+        end if;
+        EXIT WHEN (employeeAssigned<lim);
+
+    end loop;
+end loop;
+end;
+/
+

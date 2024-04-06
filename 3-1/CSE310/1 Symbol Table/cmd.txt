@@ -1,0 +1,3 @@
+g++ 1805022_SymbolInfo.cpp 1805022_ScopeTable.cpp 1805022_SymbolTable.cpp 1805022_main.cpp -o 1805022_main
+
+1805022_main.exe

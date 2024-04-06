@@ -1,0 +1,12 @@
+Number-of-Nodes
+Network-Throughput-(kilobits/sec) End-to-End-Delay-(sec) Packet-Delivery-Ratio-(%) Packet-Drop-Ratio-(%) Energy-Consumed-(J)
+20
+450739   0.317264   92.5785   23.1552   800.12
+40
+1.20226e+06   0.297784   96.6605   5.56019   1600.05
+60
+637756   0.7146   95.2734   3.95428   2400.04
+80
+607719   1.07775   94.3178   5.42536   3200.41
+100
+567062   1.2506   91.6472   5.24557   4000.66

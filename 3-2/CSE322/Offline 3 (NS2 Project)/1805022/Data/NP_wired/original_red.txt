@@ -1,0 +1,12 @@
+Number-Of-Packets
+Network-Throughput-(kilobits/sec) End-to-End-Delay-(sec) Packet-Delivery-Ratio-(%) Packet-Drop-Ratio-(%)
+100
+2.2942e+07   0.0400493   99.577   0.309527
+200
+2.2942e+07   0.0400493   99.577   0.309527
+300
+2.2942e+07   0.0400493   99.577   0.309527
+400
+2.2942e+07   0.0400493   99.577   0.309527
+500
+2.2942e+07   0.0400493   99.577   0.309527

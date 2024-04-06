@@ -1,0 +1,311 @@
+diff --git a/Makefile b/Makefile
+index 39a99d7..5a51fcb 100644
+--- a/Makefile
++++ b/Makefile
+@@ -132,6 +132,9 @@ UPROGS=\
+ 	$U/_grind\
+ 	$U/_wc\
+ 	$U/_zombie\
++	$U/_trace\
++	$U/_sysinfotest\
++
+ 
+ fs.img: mkfs/mkfs README $(UPROGS)
+ 	mkfs/mkfs fs.img README $(UPROGS)
+diff --git a/kernel/defs.h b/kernel/defs.h
+index a3c962b..960e9c0 100644
+--- a/kernel/defs.h
++++ b/kernel/defs.h
+@@ -187,3 +187,7 @@ void            virtio_disk_intr(void);
+ 
+ // number of elements in fixed-size array
+ #define NELEM(x) (sizeof(x)/sizeof((x)[0]))
++
++// offline 2::
++int get_running_process_count(void);
++int get_available_free_memory(void);
+\ No newline at end of file
+diff --git a/kernel/kalloc.c b/kernel/kalloc.c
+index 0699e7e..c5ac298 100644
+--- a/kernel/kalloc.c
++++ b/kernel/kalloc.c
+@@ -80,3 +80,14 @@ kalloc(void)
+     memset((char*)r, 5, PGSIZE); // fill with junk
+   return (void*)r;
+ }
++
++// Returns the amount of free memory
++int
++get_available_free_memory(void)
++{
++  struct run *r;
++  int memcnt = 0;
++  for(r = kmem.freelist; r ; r=r->next)
++    memcnt++;
++  return memcnt*PGSIZE;
++}
+\ No newline at end of file
+diff --git a/kernel/proc.c b/kernel/proc.c
+index 959b778..b0220df 100644
+--- a/kernel/proc.c
++++ b/kernel/proc.c
+@@ -322,6 +322,8 @@ fork(void)
+   np->state = RUNNABLE;
+   release(&np->lock);
+ 
++  np->traceId = p->traceId;
++
+   return pid;
+ }
+ 
+@@ -681,3 +683,14 @@ procdump(void)
+     printf("\n");
+   }
+ }
++
++// RETURNS THE NUMBER OF CURRENTLY RUNNING PROCESSES
++int
++get_running_process_count(){
++  int proccnt = 0;
++  for(int i=0;i<NPROC;i++)
++    if( (proc+i)->state != UNUSED )
++      proccnt++;
++  
++  return proccnt;
++}
+\ No newline at end of file
+diff --git a/kernel/proc.h b/kernel/proc.h
+index d021857..01e1808 100644
+--- a/kernel/proc.h
++++ b/kernel/proc.h
+@@ -104,4 +104,5 @@ struct proc {
+   struct file *ofile[NOFILE];  // Open files
+   struct inode *cwd;           // Current directory
+   char name[16];               // Process name (debugging)
++  int traceId;                 // offline 2:: ID of the process we need to trace
+ };
+diff --git a/kernel/syscall.c b/kernel/syscall.c
+index ed65409..657d702 100644
+--- a/kernel/syscall.c
++++ b/kernel/syscall.c
+@@ -101,6 +101,8 @@ extern uint64 sys_unlink(void);
+ extern uint64 sys_link(void);
+ extern uint64 sys_mkdir(void);
+ extern uint64 sys_close(void);
++extern uint64 sys_trace(void); // offline 2:: adding prototype of sys_call: sys_trace
++extern uint64 sys_sysinfo(void); // offline 2:: adding prototype of sys_call: sys_sysinfo
+ 
+ // An array mapping syscall numbers from syscall.h
+ // to the function that handles the system call.
+@@ -126,8 +128,17 @@ static uint64 (*syscalls[])(void) = {
+ [SYS_link]    sys_link,
+ [SYS_mkdir]   sys_mkdir,
+ [SYS_close]   sys_close,
++[SYS_trace]   sys_trace, // offline 2:: adding mapping to function sys_trace
++[SYS_sysinfo] sys_sysinfo, // offline 2:: adding mapping to function sys_sysinfo
+ };
+ 
++// offline 2:: An array mapping syscall numbers from syscall.h
++// to the name of the function that handles the system call.
++static char *syscall_names[]={
++    "","fork","exit","wait","pipe","read","kill","exec","fstat","chdir","dup","getpid","sbrk","sleep","uptime","open","write","mknod","unlink","link","mkdir","close","trace","sysinfo"
++  };
++ 
++
+ void
+ syscall(void)
+ {
+@@ -139,6 +150,10 @@ syscall(void)
+     // Use num to lookup the system call function for num, call it,
+     // and store its return value in p->trapframe->a0
+     p->trapframe->a0 = syscalls[num]();
++    // offline 2:: print the trace details if it is the target one
++    if( p->traceId == num ){
++      printf("pid: %d, syscall: %s, return value: %d\n",p->pid,syscall_names[num],p->trapframe->a0);
++    }
+   } else {
+     printf("%d %s: unknown sys call %d\n",
+             p->pid, p->name, num);
+diff --git a/kernel/syscall.h b/kernel/syscall.h
+index bc5f356..e8ba3b1 100644
+--- a/kernel/syscall.h
++++ b/kernel/syscall.h
+@@ -20,3 +20,6 @@
+ #define SYS_link   19
+ #define SYS_mkdir  20
+ #define SYS_close  21
++#define SYS_trace  22 // offline 2:: ID of system call of trace
++#define SYS_sysinfo 23 // offline 2:: ID of system call of sysinfo
++
+diff --git a/kernel/sysproc.c b/kernel/sysproc.c
+index 1de184e..4ecb41d 100644
+--- a/kernel/sysproc.c
++++ b/kernel/sysproc.c
+@@ -89,3 +89,33 @@ sys_uptime(void)
+   release(&tickslock);
+   return xticks;
+ }
++
++// setting the traceId given to the current process
++// since start.
++uint64
++sys_trace(void)
++{
++  int traceId;
++  argint(0,&traceId);
++  if( traceId < 0)
++    return -1;
++
++  myproc()->traceId = traceId; 
++  return 0;
++}
++
++// getting the amount of free memory from kalloc.c
++// and number of running process from proc.c
++uint64
++sys_sysinfo(void)
++{
++  int id;
++  argint(0,&id);
++  if( id < 0) return -1;
++  int freemem = get_available_free_memory();
++  int nproc = get_running_process_count();
++
++  printf("\nsysinfo system call prints:\nfree-memory: %d bytes\nn_proc : %d\n\n",freemem,nproc);
++  
++  return 0;
++}
+diff --git a/user/sysinfotest.c b/user/sysinfotest.c
+new file mode 100644
+index 0000000..25ade16
+--- /dev/null
++++ b/user/sysinfotest.c
+@@ -0,0 +1,72 @@
++#include "kernel/types.h"
++#include "kernel/riscv.h"
++#include "user/user.h"
++
++
++void
++sinfo() {
++  if (sysinfo() < 0) {
++    printf("FAIL: sysinfo failed");
++    exit(1);
++  }
++}
++
++
++void
++testmem() {
++  printf("\n\t\t\tTesting memory\n");
++  printf("\nInitial State\n");
++  sinfo();
++
++  printf("Using up one more page (4094 bytes).\nFreemem should reduce by that much!\n");
++  if((uint64)sbrk(PGSIZE) == 0xffffffffffffffff){
++    printf("sbrk failed");
++    exit(1);
++  }
++
++  sinfo();
++
++  printf("Giving back that one more page to the pool (4094 bytes).\nFreemem should go back to the initial value!\n");
++  
++  if((uint64)sbrk(-PGSIZE) == 0xffffffffffffffff){
++    printf("sbrk failed");
++    exit(1);
++  }
++
++  sinfo();
++}
++
++void testproc() {
++  int status;
++  int pid;
++
++  printf("\n\t\t\tTesting nproc\n");
++  printf("\nInitial State\n");
++  sinfo();
++
++  pid = fork();
++  if(pid < 0){
++    printf("sysinfotest: fork failed\n");
++    exit(1);
++  }
++  if(pid == 0){  // inside the child process
++    printf("Created one new process. So nproc should increase by 1.");
++    sinfo();
++    exit(0);
++  }
++
++  wait(&status); // wait for the created child process to end
++  printf("Created process ended. So nproc should go back to initial value.");
++  sinfo(); 
++}
++
++
++int
++main(int argc, char *argv[])
++{
++  printf("sysinfotest: start\n");
++  testmem();
++  testproc();
++  printf("sysinfotest: done\n");
++  exit(0);
++}
+diff --git a/user/trace.c b/user/trace.c
+new file mode 100644
+index 0000000..1e322ce
+--- /dev/null
++++ b/user/trace.c
+@@ -0,0 +1,27 @@
++#include "kernel/param.h"
++#include "kernel/types.h"
++#include "kernel/stat.h"
++#include "user/user.h"
++
++int
++main(int argc, char *argv[])
++{
++  int i;
++  char *nargv[MAXARG];
++
++  if(argc < 3 || (argv[1][0] < '0' || argv[1][0] > '9')){
++    fprintf(2, "Usage: %s sys_call_num command\n", argv[0]);
++    exit(1);
++  }
++
++  if (trace(atoi(argv[1])) < 0) {
++    fprintf(2, "%s: trace failed\n", argv[0]);
++    exit(1);
++  }
++  
++  for(i = 2; i < argc && i < MAXARG; i++){
++    nargv[i-2] = argv[i];
++  }
++  exec(nargv[0], nargv);
++  exit(0);
++}
+diff --git a/user/user.h b/user/user.h
+index 4d398d5..024de0c 100644
+--- a/user/user.h
++++ b/user/user.h
+@@ -22,6 +22,8 @@ int getpid(void);
+ char* sbrk(int);
+ int sleep(int);
+ int uptime(void);
++int trace(int); // offline 2:: adding trace system call 
++int sysinfo(); // offline 2:: adding sysinfo system call 
+ 
+ // ulib.c
+ int stat(const char*, struct stat*);
+diff --git a/user/usys.pl b/user/usys.pl
+index 01e426e..a4a2ffe 100755
+--- a/user/usys.pl
++++ b/user/usys.pl
+@@ -36,3 +36,5 @@ entry("getpid");
+ entry("sbrk");
+ entry("sleep");
+ entry("uptime");
++entry("trace"); # offline 2:: add syscall stub for user programms to access sys_proc
++entry("sysinfo"); # offline 2:: add syscall stub for user programms to access sys_sysinfo

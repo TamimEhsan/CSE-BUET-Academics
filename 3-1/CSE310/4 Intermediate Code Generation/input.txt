@@ -1,0 +1,9 @@
+
+ 
+int main(){
+	int a;
+	a = 5.7;
+	println(a);
+ 
+	return 0;
+}

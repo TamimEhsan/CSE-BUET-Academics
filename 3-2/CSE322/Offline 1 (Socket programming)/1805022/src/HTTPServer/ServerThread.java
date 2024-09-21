@@ -66,6 +66,7 @@ public class ServerThread extends Thread {
 
             String url = getUrl(httpRequest);
             String path = getPath(httpRequest);
+            System.out.println(path);
 
             fileWriter = new PrintWriter(logFilePath+"\\http_log_"+(++request_no)+".log");
             fileWriter.println("HTTP REQUEST LINE FROM CLIENT:\n"+httpRequest+"\n");
@@ -105,6 +106,7 @@ public class ServerThread extends Thread {
                     fileWriter.write(resposnse);
                 }
             }else{
+                System.out.println("File not found!");
                 String htmlPage = basicTemplate.replace("<content>","<h1>Error 404</h1><h2>File Not Found</h2>");
                 String htmlHeader = buildHttpHeader("/", htmlPage.length(), "text/html","404 Not Found");
                 printer.println(htmlHeader);
@@ -261,7 +263,7 @@ public class ServerThread extends Thread {
 
 
             String basePath = new File("").getAbsolutePath();
-            String path = basePath.concat("/uploaded/"+fileName);
+            String path = basePath.concat("/root/uploaded/"+fileName);
             FileOutputStream fileOutputStream = new FileOutputStream(path);
 
 

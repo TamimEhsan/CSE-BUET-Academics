@@ -1,0 +1,9 @@
+HTTP REQUEST LINE FROM CLIENT:
+GET /root//uploaded HTTP/1.1
+
+HTTP RESPONSE TO CLIENT:
+HTTP/1.1 200 OK
+Server: Java HTTP Server: 1.0
+Date: Sun Sep 22 01:59:08 BDT 2024
+Content-Type: text/html
+Content-Length: 1573

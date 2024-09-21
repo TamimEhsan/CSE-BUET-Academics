@@ -30,7 +30,7 @@ public class Server {
         File rootDirectory = new File(rootPath);
         if( !rootDirectory.exists() ) rootDirectory.mkdir();
 
-        String uploadPath = baseDir.getAbsolutePath().concat("/uploaded");
+        String uploadPath = baseDir.getAbsolutePath().concat("/root/uploaded");
         File uploadDirectory = new File(uploadPath);
         if( !uploadDirectory.exists() ) uploadDirectory.mkdir();
         String logFilePath = logDirectory.getAbsolutePath();
@@ -67,9 +67,5 @@ public class Server {
 
         return "";
     }
-
-
-
-
 
 }
